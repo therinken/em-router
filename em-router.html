@@ -3,15 +3,17 @@
 </head>
 <template name="Layout">
     <div class="container">
-        {{> yield}}
+        <div id="new-article">
+            {{#linkTo route='article.new'}} New Article {{/linkTo}}
+        </div>
+        <div class="content">
+            {{> yield}}
+        </div>
     </div>
 </template>
 <template name="Blog">
     <h1>Blog</h1>
 
-        <div id="new-article">
-            {{#linkTo route='article.new'}} New Article {{/linkTo}}
-        </div>
     <ul>
         {{#each showArticles}}
         <li>
@@ -23,7 +25,9 @@
     </ul>
 </template>
 <template name="Article">
-    <h1>Article</h1>
+    <h1>{{title}}</h1>
+    <div>{{author}}</div>
+    <p>{{body}}</p>
 </template>
 <template name="ArticleNew">
     <h1>New Article</h1>

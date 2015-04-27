@@ -5,10 +5,10 @@ Router.configure({
     loadingTemplate: 'Loading'
 });
 
-Router.route('/', function() {
+Router.route('/', function(){
     this.layout('Layout');
     this.render('Blog');
-});
+}, {name: 'home'});
 
 Router.route('/blog/new', function() {
     this.layout('Layout');

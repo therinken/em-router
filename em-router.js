@@ -6,8 +6,7 @@ Router.configure({
 });
 
 Router.route('/', {
-    name: 'home',
-    template: 'Blog'
+    name: 'home'
 });
 
 Router.route('/blog/new', {
@@ -16,13 +15,7 @@ Router.route('/blog/new', {
 });
 
 Router.route('/blog/:_id', {
-    name: 'article.show',
-    template: 'Article',
-    data: function() {
-        return Articles.findOne({
-            _id: this.params._id
-        });
-    }
+    name: 'article.show'
 });
 
 if (Meteor.isClient) {
@@ -33,10 +26,21 @@ if (Meteor.isClient) {
 
     });
 }
-
 if (Meteor.isServer) {
+
+    Meteor.publish('articles', function() {
+        return Articles.find();
+    });
+    Meteor.publish('article', function(id) {
+        return Articles.find({
+            _id: id
+        });
+    });
+
     Meteor.startup(function() {
-        Articles.remove({});
+        if (Articles.find().count() > 0)
+            return;
+
         for (var i = 0; i < 3; i++) {
             Articles.insert({
                 title: 'Blog Article ' + i,

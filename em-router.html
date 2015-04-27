@@ -2,6 +2,7 @@
     <title>em-router</title>
 </head>
 <template name="Layout">
+    <div class="login">{{> loginButtons}}</div>
     <div class="container">
         <div id="new-article">
             {{#linkTo route='article.new'}} New Article {{/linkTo}}
@@ -46,9 +47,19 @@
     <li>{{#linkTo route="home"}}Home{{/linkTo}}</li>
     <li><span class="divider">/</span>
     </li>
-    <li>new-article</li>
+    <li>New Article</li>
     {{/contentFor}}
-    <h1>New Article</h1>
+    <form id="new-article">
+        <div class="field">
+            <input type="text" name="title" placeholder="Title">
+        </div>
+        <div class="field">
+            <textarea name="body" placeholder="Body..."></textarea>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary" value="Save">Save</button>
+        </div>
+    </form>
 </template>
 <template name="Loading">
     Hang on fella, I'm loading...

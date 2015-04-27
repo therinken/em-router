@@ -1,37 +1,36 @@
 /* CSS declarations go here */
+
 /* CSS declarations go here */
+
 body {
-  font-family: Helvetica;
-  font-size: 14pt;
-  margin: 0;
-  padding: 0;
+    font-family: Helvetica;
+    font-size: 14pt;
+    margin: 0;
+    padding: 0;
 }
-
 .container {
-  margin: 20px auto;
-  width: 600px;
+    margin: 20px auto;
+    width: 600px;
 }
-
 .content {
-  margin: 20px 0;
+    margin: 20px 0;
 }
-
 .breadcrumb {
-  margin: 20px 0;
+    margin: 20px 0;
 }
-
 form {
-  overflow: hidden;
+    overflow: hidden;
 }
-
-input[type=text], textarea {
-  width: 80%;
+.field {
+    padding-bottom: 20px;
 }
-
+input[type=text],
 textarea {
-  height: 100px;
+    width: 80%;
 }
-
+textarea {
+    height: 100px;
+}
 .login {
-  margin: 20px;
+    margin: 20px;
 }

@@ -8,3 +8,5 @@ meteor-platform
 insecure
 iron:router
 twbs:bootstrap
+accounts-password
+accounts-ui

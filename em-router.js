@@ -5,29 +5,24 @@ Router.configure({
     loadingTemplate: 'Loading'
 });
 
-Router.route('/', function(){
-    this.layout('Layout');
-    this.render('Blog');
-}, {name: 'home'});
-
-Router.route('/blog/new', function() {
-    this.layout('Layout');
-    this.render('ArticleNew');
-}, {
-    name: 'article.new'
+Router.route('/', {
+    name: 'home',
+    template: 'Blog'
 });
 
-Router.route('/blog/:_id', function() {
-    this.layout('Layout', {
+Router.route('/blog/new', {
+    name: 'article.new',
+    template: 'ArticleNew'
+});
+
+Router.route('/blog/:_id', {
+    name: 'article.show',
+    template: 'Article',
     data: function() {
         return Articles.findOne({
             _id: this.params._id
         });
     }
-    });
-    this.render('Article', {});
-}, {
-    name: 'article.show'
 });
 
 if (Meteor.isClient) {
@@ -45,7 +40,7 @@ if (Meteor.isServer) {
         for (var i = 0; i < 3; i++) {
             Articles.insert({
                 title: 'Blog Article ' + i,
-                body: 'Thisis the text body for the article I want to show.',
+                body: 'This is the text body for the article I want to show.',
                 createdAt: new Date(),
                 author: 'Kaben Naby'
             });

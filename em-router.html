@@ -42,6 +42,12 @@
     <p>{{body}}</p>
 </template>
 <template name="ArticleNew">
+    {{#contentFor 'breadcrumbs'}}
+    <li>{{#linkTo route="home"}}Home{{/linkTo}}</li>
+    <li><span class="divider">/</span>
+    </li>
+    <li>new-article</li>
+    {{/contentFor}}
     <h1>New Article</h1>
 </template>
 <template name="Loading">
